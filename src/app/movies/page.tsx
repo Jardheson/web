@@ -37,19 +37,19 @@ export default async function MoviesPage() {
   }
 
   return (
-    <div className="p-8 pb-20">
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-2">Locadora Digital & Filmes</h1>
-        <p className="text-gray-400">Os últimos lançamentos do cinema direto para sua casa.</p>
+    <div className="p-4 md:p-8 pb-24 min-h-screen">
+      <div className="mb-6 md:mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold mb-2">Locadora Digital & Filmes</h1>
+        <p className="text-sm md:text-base text-gray-400">Os últimos lançamentos do cinema direto para sua casa.</p>
         {!apiKey && (
-          <div className="mt-4 p-4 bg-yellow-500/10 border border-yellow-500/20 rounded text-yellow-500 text-sm flex items-start gap-3">
+          <div className="mt-4 p-3 md:p-4 bg-yellow-500/10 border border-yellow-500/20 rounded text-yellow-500 text-xs md:text-sm flex items-start gap-3">
             <Info className="w-5 h-5 flex-shrink-0" />
             <p><strong>Modo Demo:</strong> A chave da API do TMDB (TMDB_API_KEY) não foi encontrada. Mostrando dados fictícios para o MVP.</p>
           </div>
         )}
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-6">
         {movies.map((movie) => (
           <div key={movie.id} className="group cursor-pointer">
             <div className="relative aspect-[2/3] rounded-lg overflow-hidden mb-3">

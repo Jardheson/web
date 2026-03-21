@@ -9,18 +9,18 @@ export default function KidsPage() {
   }));
 
   return (
-    <div className="p-8 pb-24 bg-gradient-to-b from-blue-900/40 to-background min-h-screen">
-      <div className="mb-8 flex items-center gap-4">
-        <div className="p-4 bg-blue-500 rounded-full">
-          <Gamepad2 className="w-10 h-10 text-white" />
+    <div className="p-4 md:p-8 pb-24 bg-gradient-to-b from-blue-900/40 to-background min-h-screen">
+      <div className="mb-6 md:mb-8 flex items-center gap-3 md:gap-4">
+        <div className="p-3 md:p-4 bg-blue-500 rounded-full">
+          <Gamepad2 className="w-8 h-8 md:w-10 md:h-10 text-white" />
         </div>
         <div>
-          <h1 className="text-4xl font-bold mb-2 text-blue-400">Área Infantil</h1>
-          <p className="text-gray-300">Conteúdo seguro e divertido para as crianças.</p>
+          <h1 className="text-3xl md:text-4xl font-bold mb-1 md:mb-2 text-blue-400">Área Infantil</h1>
+          <p className="text-sm md:text-base text-gray-300">Conteúdo seguro e divertido para as crianças.</p>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-12">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 mt-8 md:mt-12">
         {content.map((item) => (
           <div key={item.id} className="group cursor-pointer">
             <div className="relative aspect-square rounded-2xl overflow-hidden mb-3 border-4 border-transparent group-hover:border-blue-500 transition-all duration-300 shadow-xl">

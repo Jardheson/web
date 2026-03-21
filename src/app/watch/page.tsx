@@ -25,12 +25,12 @@ export default async function WatchPage({
 
   return (
     <div className="flex flex-col h-screen bg-black">
-      <div className="absolute top-0 left-0 right-0 p-6 z-10 flex items-center justify-between bg-gradient-to-b from-black/80 to-transparent">
-        <div className="flex items-center gap-4">
+      <div className="absolute top-0 left-0 right-0 p-4 md:p-6 z-10 flex items-center justify-between bg-gradient-to-b from-black/80 to-transparent">
+        <div className="flex items-center gap-3 md:gap-4">
           <Link href="/tv" className="text-white hover:text-primary transition">
-            <ArrowLeft className="w-8 h-8" />
+            <ArrowLeft className="w-6 h-6 md:w-8 md:h-8" />
           </Link>
-          <h1 className="text-2xl font-bold text-white drop-shadow-md">{title}</h1>
+          <h1 className="text-lg md:text-2xl font-bold text-white drop-shadow-md truncate">{title}</h1>
         </div>
       </div>
       

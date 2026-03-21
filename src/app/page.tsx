@@ -18,25 +18,25 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/30 to-transparent" />
         </div>
         
-        <div className="relative z-10 px-8 pb-12 max-w-2xl">
-          <span className="text-primary font-bold tracking-widest text-sm mb-4 block">EXCLUSIVO GLOBEPLAY+</span>
-          <h1 className="text-5xl font-bold mb-4">Ação Sem Limites</h1>
-          <p className="text-lg text-gray-300 mb-6 line-clamp-3">
+        <div className="relative z-10 px-4 md:px-8 pb-8 md:pb-12 max-w-2xl">
+          <span className="text-primary font-bold tracking-widest text-xs md:text-sm mb-2 md:mb-4 block">EXCLUSIVO GLOBEPLAY+</span>
+          <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-4">Ação Sem Limites</h1>
+          <p className="text-sm md:text-lg text-gray-300 mb-4 md:mb-6 line-clamp-3">
             Assista aos melhores filmes, séries e canais de TV ao vivo em uma só plataforma. Tudo o que você ama, agora com música e shows integrados.
           </p>
-          <div className="flex items-center gap-4">
-            <button className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-md font-bold hover:bg-white/80 transition">
-              <Play className="w-5 h-5 fill-black" /> Assistir
+          <div className="flex flex-wrap items-center gap-2 md:gap-4">
+            <button className="flex items-center gap-2 bg-white text-black px-4 py-2 md:px-6 md:py-3 rounded-md font-bold hover:bg-white/80 transition text-sm md:text-base">
+              <Play className="w-4 h-4 md:w-5 md:h-5 fill-black" /> Assistir
             </button>
-            <button className="flex items-center gap-2 bg-white/20 text-white px-6 py-3 rounded-md font-bold hover:bg-white/30 transition">
-              <Plus className="w-5 h-5" /> Minha Lista
+            <button className="flex items-center gap-2 bg-white/20 text-white px-4 py-2 md:px-6 md:py-3 rounded-md font-bold hover:bg-white/30 transition text-sm md:text-base">
+              <Plus className="w-4 h-4 md:w-5 md:h-5" /> Minha Lista
             </button>
           </div>
         </div>
       </section>
 
       {/* Carousels */}
-      <section className="px-8 mt-4 space-y-8">
+      <section className="px-4 md:px-8 mt-4 space-y-6 md:space-y-8">
         <Carousel title="Canais Populares (TV ao Vivo)" type="tv" />
         <Carousel title="Filmes em Alta (Locadora)" type="movie" />
         <Carousel title="Músicas Mais Tocadas" type="music" />

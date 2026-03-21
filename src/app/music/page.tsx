@@ -109,35 +109,35 @@ export default function MusicPage() {
   };
 
   return (
-    <div className="p-8 pb-24 min-h-screen flex flex-col">
-      <div className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <div className="p-4 md:p-8 pb-24 min-h-screen flex flex-col">
+      <div className="mb-6 md:mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6">
         <div>
-          <h1 className="text-4xl font-bold mb-2 flex items-center gap-3">
-            <Music2 className="w-10 h-10 text-primary" /> Música
+          <h1 className="text-3xl md:text-4xl font-bold mb-2 flex items-center gap-3">
+            <Music2 className="w-8 h-8 md:w-10 md:h-10 text-primary" /> Música
           </h1>
-          <p className="text-gray-400">Milhares de faixas para você curtir a qualquer momento.</p>
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-sm md:text-base text-gray-400">Milhares de faixas para você curtir a qualquer momento.</p>
+          <p className="text-xs md:text-sm text-gray-500 mt-1">
             Mostrando {filteredTracks.length} de {tracks.length} músicas
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-4">
-          <div className="relative">
+        <div className="flex flex-wrap items-center gap-2 md:gap-4 w-full md:w-auto">
+          <div className="relative w-full sm:w-auto flex-1 sm:flex-none">
             <Search className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
             <input 
               type="text" 
               placeholder="Buscar música ou artista..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="bg-white/5 border border-white/10 rounded-full pl-10 pr-4 py-2 text-sm focus:outline-none focus:border-primary transition w-64"
+              className="bg-white/5 border border-white/10 rounded-full pl-10 pr-4 py-2 text-sm focus:outline-none focus:border-primary transition w-full sm:w-64"
             />
           </div>
 
-          <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2">
+          <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3 py-2 md:px-4 md:py-2 flex-1 sm:flex-none">
             <select 
               value={selectedGenre}
               onChange={(e) => setSelectedGenre(e.target.value)}
-              className="bg-transparent text-sm text-white focus:outline-none cursor-pointer max-w-[150px] capitalize"
+              className="bg-transparent text-sm text-white focus:outline-none cursor-pointer w-full md:max-w-[150px] capitalize"
             >
               <option value="all" className="bg-black text-white">Todos os Gêneros</option>
               {genres.map(g => (
@@ -152,8 +152,8 @@ export default function MusicPage() {
 
       {filteredTracks.length === 0 ? (
         <div className="flex-1 flex flex-col items-center justify-center text-gray-500">
-          <Search className="w-16 h-16 mb-4 opacity-50" />
-          <p className="text-xl">Nenhuma música encontrada com estes filtros.</p>
+          <Search className="w-12 h-12 md:w-16 md:h-16 mb-4 opacity-50" />
+          <p className="text-lg md:text-xl text-center">Nenhuma música encontrada com estes filtros.</p>
           <button 
             onClick={() => { setSearchTerm(""); setSelectedGenre("all"); }}
             className="mt-4 text-primary hover:underline"
@@ -162,7 +162,7 @@ export default function MusicPage() {
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-6">
           {visibleTracks.map((track) => (
             <div key={track.id} className="bg-white/5 p-4 rounded-lg hover:bg-white/10 transition group cursor-pointer border border-transparent hover:border-white/10 shadow-lg" onClick={() => handlePlay(track)}>
               <div className="relative aspect-square rounded-md overflow-hidden mb-4 shadow-xl">

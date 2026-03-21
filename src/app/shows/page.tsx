@@ -12,15 +12,15 @@ export default function ShowsPage() {
   }));
 
   return (
-    <div className="p-8 pb-24 min-h-screen">
-      <div className="mb-10">
-        <h1 className="text-4xl font-bold mb-2 flex items-center gap-3">
-          <Mic2 className="w-10 h-10 text-primary" /> Shows e Eventos
+    <div className="p-4 md:p-8 pb-24 min-h-screen">
+      <div className="mb-6 md:mb-10">
+        <h1 className="text-3xl md:text-4xl font-bold mb-2 flex items-center gap-3">
+          <Mic2 className="w-8 h-8 md:w-10 md:h-10 text-primary" /> Shows e Eventos
         </h1>
-        <p className="text-gray-400">Assista aos melhores shows gravados ou transmissões ao vivo exclusivas.</p>
+        <p className="text-sm md:text-base text-gray-400">Assista aos melhores shows gravados ou transmissões ao vivo exclusivas.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {events.map((event) => (
           <div key={event.id} className="bg-white/5 border border-white/10 rounded-xl overflow-hidden group cursor-pointer hover:bg-white/10 transition">
             <div className="relative aspect-[16/9] w-full">

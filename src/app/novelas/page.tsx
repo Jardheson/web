@@ -47,24 +47,24 @@ export default async function NovelasPage() {
   }
 
   return (
-    <div className="p-8 pb-20">
-      <div className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <div className="p-4 md:p-8 pb-24 min-h-screen">
+      <div className="mb-6 md:mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6">
         <div>
-          <h1 className="text-4xl font-bold mb-2 flex items-center gap-3">
-            <Heart className="w-10 h-10 text-primary fill-primary" /> Novelas (Soap Operas)
+          <h1 className="text-3xl md:text-4xl font-bold mb-2 flex items-center gap-3">
+            <Heart className="w-8 h-8 md:w-10 md:h-10 text-primary fill-primary" /> Novelas (Soap Operas)
           </h1>
-          <p className="text-gray-400">As tramas mais envolventes do Brasil e do mundo, capítulos completos para você maratonar.</p>
+          <p className="text-sm md:text-base text-gray-400">As tramas mais envolventes do Brasil e do mundo, capítulos completos para você maratonar.</p>
         </div>
       </div>
 
       {!apiKey && (
-        <div className="mb-8 p-4 bg-yellow-500/10 border border-yellow-500/20 rounded text-yellow-500 text-sm flex items-start gap-3">
+        <div className="mb-6 md:mb-8 p-3 md:p-4 bg-yellow-500/10 border border-yellow-500/20 rounded text-yellow-500 text-xs md:text-sm flex items-start gap-3">
           <Info className="w-5 h-5 flex-shrink-0" />
           <p><strong>Modo Demo:</strong> A chave da API do TMDB (TMDB_API_KEY) não foi encontrada. O TMDB é a maior base de dados de novelas e séries do mundo. Adicione sua chave no arquivo .env para ver as capas e títulos reais!</p>
         </div>
       )}
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-6">
         {novelas.map((novela) => (
           <div key={novela.id} className="group cursor-pointer">
             <div className="relative aspect-[2/3] rounded-lg overflow-hidden mb-3 shadow-lg border border-white/5">

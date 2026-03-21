@@ -65,7 +65,15 @@ export default function MusicPlayer() {
   if (!currentTrack) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 h-20 bg-sidebar border-t border-white/10 z-50 flex items-center justify-between px-4">
+    <div className="fixed bottom-0 left-0 right-0 h-16 md:h-20 bg-sidebar border-t border-white/10 z-50 flex items-center justify-between px-2 md:px-4">
+      {/* Absolute thin progress bar for mobile */}
+      <div className="md:hidden absolute top-0 left-0 right-0 h-1 bg-white/10">
+        <div 
+          className="h-full bg-secondary" 
+          style={{ width: `${(progress / (duration || 1)) * 100}%` }} 
+        />
+      </div>
+
       <audio 
         ref={audioRef}
         onTimeUpdate={handleTimeUpdate}
@@ -73,8 +81,8 @@ export default function MusicPlayer() {
       />
 
       {/* Track Info */}
-      <div className="flex items-center gap-4 w-1/3">
-        <div className="w-14 h-14 relative rounded bg-white/10 overflow-hidden flex-shrink-0">
+      <div className="flex items-center gap-2 md:gap-4 w-[60%] md:w-1/3">
+        <div className="w-10 h-10 md:w-14 md:h-14 relative rounded bg-white/10 overflow-hidden flex-shrink-0">
           <Image 
             src={currentTrack.image} 
             alt={currentTrack.title} 
@@ -82,25 +90,25 @@ export default function MusicPlayer() {
             className="object-cover"
           />
         </div>
-        <div className="truncate">
-          <h4 className="text-sm font-bold text-white leading-tight truncate">{currentTrack.title}</h4>
-          <p className="text-xs text-gray-400 truncate">{currentTrack.artist}</p>
+        <div className="truncate flex-1">
+          <h4 className="text-xs md:text-sm font-bold text-white leading-tight truncate">{currentTrack.title}</h4>
+          <p className="text-[10px] md:text-xs text-gray-400 truncate">{currentTrack.artist}</p>
         </div>
       </div>
 
       {/* Controls */}
-      <div className="flex flex-col items-center justify-center w-1/3 max-w-md">
-        <div className="flex items-center gap-6 mb-1">
-          <button className="text-gray-400 hover:text-white transition"><SkipBack className="w-5 h-5" /></button>
+      <div className="flex flex-col items-center justify-center w-[40%] md:w-1/3 max-w-md">
+        <div className="flex items-center justify-end md:justify-center gap-4 md:gap-6 mb-0 md:mb-1 w-full">
+          <button className="hidden md:block text-gray-400 hover:text-white transition"><SkipBack className="w-5 h-5" /></button>
           <button 
-            className="w-8 h-8 flex items-center justify-center bg-white text-black rounded-full hover:scale-105 transition"
+            className="w-8 h-8 md:w-8 md:h-8 flex items-center justify-center bg-white text-black rounded-full hover:scale-105 transition"
             onClick={togglePlay}
           >
             {isPlaying ? <Pause className="w-4 h-4 fill-black" /> : <Play className="w-4 h-4 fill-black ml-1" />}
           </button>
-          <button className="text-gray-400 hover:text-white transition"><SkipForward className="w-5 h-5" /></button>
+          <button className="hidden md:block text-gray-400 hover:text-white transition"><SkipForward className="w-5 h-5" /></button>
         </div>
-        <div className="w-full flex items-center gap-2">
+        <div className="hidden md:flex w-full items-center gap-2">
           <span className="text-[10px] text-gray-400 min-w-[30px] text-right">{formatTime(progress)}</span>
           <input 
             type="range" 
@@ -115,7 +123,7 @@ export default function MusicPlayer() {
       </div>
 
       {/* Extra Controls */}
-      <div className="flex items-center justify-end gap-4 w-1/3 text-gray-400">
+      <div className="hidden md:flex items-center justify-end gap-4 w-1/3 text-gray-400">
         <button onClick={() => setIsMuted(!isMuted)} className="hover:text-white transition">
           {isMuted || volume === 0 ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
         </button>
