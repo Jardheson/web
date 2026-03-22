@@ -48,17 +48,17 @@ export default async function NovelasPage() {
 
   return (
     <div className="p-4 md:p-8 pb-24 min-h-screen">
-      <div className="mb-6 md:mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6">
+      <div className="mb-6 md:mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6">
         <div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-2 flex items-center gap-3">
-            <Heart className="w-8 h-8 md:w-10 md:h-10 text-primary fill-primary" /> Novelas (Soap Operas)
+          <h1 className="text-3xl md:text-5xl font-black mb-2 flex items-center gap-3 bg-clip-text text-transparent bg-gradient-to-r from-primary to-[#ff4081]">
+            <Heart className="w-8 h-8 md:w-12 md:h-12 text-primary fill-primary drop-shadow-md" /> Novelas (Soap Operas)
           </h1>
-          <p className="text-sm md:text-base text-gray-400">As tramas mais envolventes do Brasil e do mundo, capítulos completos para você maratonar.</p>
+          <p className="text-sm md:text-lg text-gray-300 font-medium">As tramas mais envolventes do Brasil e do mundo, capítulos completos para você maratonar.</p>
         </div>
       </div>
 
       {!apiKey && (
-        <div className="mb-6 md:mb-8 p-3 md:p-4 bg-yellow-500/10 border border-yellow-500/20 rounded text-yellow-500 text-xs md:text-sm flex items-start gap-3">
+        <div className="mb-6 md:mb-10 p-3 md:p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-xl text-yellow-500 text-xs md:text-sm flex items-start gap-3 shadow-lg">
           <Info className="w-5 h-5 flex-shrink-0" />
           <p><strong>Modo Demo:</strong> A chave da API do TMDB (TMDB_API_KEY) não foi encontrada. O TMDB é a maior base de dados de novelas e séries do mundo. Adicione sua chave no arquivo .env para ver as capas e títulos reais!</p>
         </div>
@@ -66,14 +66,14 @@ export default async function NovelasPage() {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-6">
         {novelas.map((novela) => (
-          <div key={novela.id} className="group cursor-pointer">
-            <div className="relative aspect-[2/3] rounded-lg overflow-hidden mb-3 shadow-lg border border-white/5">
+          <div key={novela.id} className="group cursor-pointer flex flex-col">
+            <div className="relative aspect-[2/3] rounded-xl overflow-hidden mb-3 glass-card hover:border-primary/50 hover:shadow-[0_0_25px_rgba(255,0,85,0.2)] hover:-translate-y-1 transition-all duration-300">
               {novela.poster_path ? (
                 <Image
                   src={`https://image.tmdb.org/t/p/w500${novela.poster_path}`}
                   alt={novela.name}
                   fill
-                  className="object-cover group-hover:scale-105 transition duration-300"
+                  className="object-cover group-hover:scale-110 transition duration-700"
                 />
               ) : (
                 <div className="w-full h-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:scale-105 transition duration-300">
@@ -86,16 +86,16 @@ export default async function NovelasPage() {
                   <span className="absolute text-center px-4 font-serif text-2xl font-bold text-white/80 tracking-widest drop-shadow-lg">{novela.name}</span>
                 </div>
               )}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition flex items-center justify-center">
-                <Play className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                <Play className="w-14 h-14 text-white drop-shadow-[0_0_15px_rgba(255,0,85,0.8)] transform scale-50 group-hover:scale-100 transition-all duration-300" />
               </div>
-              <div className="absolute top-2 right-2 bg-black/80 px-2 py-1 rounded text-xs font-bold flex items-center gap-1">
-                <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
+              <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded-md text-xs font-bold flex items-center gap-1 border border-white/10">
+                <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
                 {novela.vote_average}
               </div>
             </div>
-            <h3 className="font-bold text-sm truncate group-hover:text-primary transition">{novela.name}</h3>
-            <p className="text-xs text-gray-400">{novela.first_air_date?.split('-')[0]}</p>
+            <h3 className="font-bold text-sm md:text-base truncate text-gray-100 group-hover:text-primary transition">{novela.name}</h3>
+            <p className="text-xs text-gray-400 mt-0.5">{novela.first_air_date?.split('-')[0]}</p>
           </div>
         ))}
       </div>
