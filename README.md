@@ -1,36 +1,192 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Streaming Platform
 
-## Getting Started
+Uma plataforma de streaming moderna construída com Next.js que permite aos usuários assistir a TV, filmes, músicas, séries e novelas em um único lugar.
 
-First, run the development server:
+## 👨‍💻 Autor
+
+**Jardheson Oliveira**
+
+## 📋 Descrição
+
+Esta é uma aplicação full-stack de streaming que oferece uma experiência integrada para consumir diversos tipos de conteúdo de mídia. A plataforma inclui suporte para:
+
+- 📺 **TV ao Vivo** - Transmissão de canal de TV
+- 🎬 **Filmes** - Catálogo de filmes
+- 🎵 **Música** - Reprodução de áudio com player integrado
+- 📻 **Rádio** - Streaming de rádio
+- 👶 **Conteúdo Infantil** - Seção dedicada para crianças
+- 📺 **Séries** - Catálogo de séries e shows
+- 📰 **Novelas** - Transmissão de novelas
+
+## 🛠️ Stack Tecnológico
+
+### Frontend
+- **Next.js** 16.2.1 - Framework React com renderização server-side
+- **React** 19.2.4 - Biblioteca de interface
+- **TypeScript** - Tipagem estática
+- **Tailwind CSS** 4 - Estilização utility-first
+- **Zustand** - Gerenciamento de estado global
+
+### Reprodução de Mídia
+- **React Player** - Player de vídeo universal
+- **HLS.js** - Reprodução de streams HLS
+- **Lucide React** - Ícones SVG
+
+### API & Backend
+- **Apollo Client** - Cliente GraphQL
+- **WatchMode API** - Integração com dados de conteúdo
+
+### Parsing
+- **iptv-playlist-parser** - Parser de playlists IPTV
+
+### Cookies
+- **js-cookie** - Gerenciamento de cookies
+
+## 📁 Estrutura do Projeto
+
+```
+src/
+├── app/
+│   ├── layout.tsx           # Layout principal
+│   ├── page.tsx             # Página inicial
+│   ├── favorites/           # Página de favoritos
+│   ├── tv/                  # Página de TV ao vivo
+│   ├── movies/              # Catálogo de filmes
+│   ├── shows/               # Catálogo de séries
+│   ├── music/               # Reprodução de música
+│   ├── radio/               # Streaming de rádio
+│   ├── novelas/             # Catálogo de novelas
+│   ├── kids/                # Conteúdo infantil
+│   ├── search/              # Página de busca
+│   ├── login/               # Autenticação
+│   ├── register/            # Registro de usuário
+│   ├── watch/               # Página de reprodução
+│   ├── watchmode-details/   # Detalhes do WatchMode
+│   └── api/
+│       └── watchmode/       # Endpoint para API
+├── components/
+│   ├── Carousel.tsx         # Componente carrossel
+│   ├── VideoPlayer.tsx      # Player de vídeo
+│   ├── MusicPlayer.tsx      # Player de música
+│   ├── EpgGuide.tsx         # Guia de programação
+│   ├── ChannelImage.tsx     # Imagem de canal
+│   ├── TrackImage.tsx       # Imagem de faixa
+│   ├── Sidebar.tsx          # Barra lateral
+│   ├── LayoutWrapper.tsx    # Wrapper de layout
+│   └── Providers.tsx        # Provedores (contexto, temas)
+└── store/
+    ├── favoritesStore.ts    # Estado de favoritos
+    └── playerStore.ts       # Estado do player
+```
+
+## 🚀 Começando
+
+### Pré-requisitos
+- **Node.js** 18+ 
+- **npm** ou **yarn**
+
+### Instalação
+
+1. Clone o repositório:
+```bash
+git clone <url-do-repositorio>
+cd web
+```
+
+2. Instale as dependências:
+```bash
+npm install
+```
+
+3. Configure as variáveis de ambiente:
+```bash
+cp .env.example .env.local
+```
+
+Adicione suas chaves de API (WatchMode, etc.)
+
+### Desenvolvimento
+
+Execute o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A aplicação estará disponível em [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build para Produção
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 📝 Scripts Disponíveis
 
-To learn more about Next.js, take a look at the following resources:
+| Comando | Descrição |
+|---------|----------|
+| `npm run dev` | Inicia o servidor de desenvolvimento |
+| `npm run build` | Build para produção |
+| `npm start` | Inicia o servidor em produção |
+| `npm run lint` | Verifica erros de linting com ESLint |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎯 Funcionalidades Principais
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Autenticação
+- Sistema de login e registro de usuários
+- Gerenciamento de sessão com cookies
 
-## Deploy on Vercel
+### Reprodução de Mídia
+- Suporte para múltiplos formatos de vídeo
+- Streaming de áudio com player integrado
+- Controles de player personalizados
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Favoritos
+- Sistema de favoritos persistente com Zustand
+- Salvar e recuperar conteúdo favorito
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Busca
+- Busca integrada no WatchMode
+- Detalhes detalhados de conteúdo
+
+### Guia de Programação
+- EPG (Eletronic Program Guide) para TV ao vivo
+- Informações de canal e programação
+
+## 🔐 Segurança
+
+- TypeScript para tipagem segura
+- Validação de entrada com ESLint
+- Gestão segura de cookies
+
+## 📚 Documentação
+
+Para mais informações, visite:
+- [Documentação do Next.js](https://nextjs.org/docs)
+- [Documentação do React](https://react.dev)
+- [Documentação do Zustand](https://github.com/pmndrs/zustand)
+- [Documentação do Tailwind CSS](https://tailwindcss.com/docs)
+
+## 🤝 Contribuição
+
+As contribuições são bem-vindas! Por favor:
+
+1. Faça um fork do repositório
+2. Crie uma branch para sua feature (`git checkout -b feature/MinhaFeature`)
+3. Commit suas mudanças (`git commit -am 'Adiciona MinhaFeature'`)
+4. Push para a branch (`git push origin feature/MinhaFeature`)
+5. Abra um Pull Request
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
+
+## 📧 Contato
+
+Para dúvidas ou sugestões, entre em contato com:
+- **Jardheson Oliveira**
+
+---
+
+**Última atualização:** Março de 2026
