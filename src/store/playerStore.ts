@@ -7,6 +7,7 @@ export interface Track {
   audioUrl: string;
   image: string;
   genre?: string;
+  duration?: number;
 }
 
 interface PlayerStore {

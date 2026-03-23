@@ -2,9 +2,9 @@
 "use client";
 
 import Image from "next/image";
-import { Mic2, Calendar, Play, Music, Video, User } from "lucide-react";
+import { Mic2, Play, Video, User } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 // Usando o TMDB como API para shows musicais (Music Documentaries / Concerts)
 // ID do gênero Música no TMDB é 10402
@@ -139,7 +139,7 @@ export default function ShowsPage({ searchParams }: { searchParams: { q?: string
             className="w-full md:w-72 bg-white/5 border border-white/10 rounded-full pl-5 pr-12 py-2.5 text-sm text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all group-hover:border-white/30 shadow-inner"
           />
           <button type="submit" className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinelinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           </button>
         </form>
       </div>
@@ -172,9 +172,9 @@ export default function ShowsPage({ searchParams }: { searchParams: { q?: string
                   e.currentTarget.src = `https://images.unsplash.com/photo-1540039155732-684736dd46bf?w=1280&q=80&random=${event.id}`;
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-[#141414] via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
               
-              <div className="absolute top-4 left-4 bg-gradient-to-r from-primary to-[#ff4081] text-white px-3 py-1 rounded text-[10px] font-bold tracking-widest uppercase shadow-lg flex items-center gap-1.5">
+              <div className="absolute top-4 left-4 bg-linear-to-r from-primary to-[#ff4081] text-white px-3 py-1 rounded text-[10px] font-bold tracking-widest uppercase shadow-lg flex items-center gap-1.5">
                 <Video className="w-3 h-3" /> Em Alta
               </div>
 

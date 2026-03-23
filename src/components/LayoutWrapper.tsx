@@ -32,7 +32,7 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
 
       <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
       
-      <main className="flex-1 md:ml-64 pt-16 md:pt-0 pb-20 md:pb-20 overflow-y-auto bg-gradient-to-b from-card to-background">
+      <main className="flex-1 md:ml-64 pt-16 md:pt-0 pb-20 md:pb-20 overflow-y-auto bg-linear-to-b from-card to-background">
         {children}
       </main>
       <MusicPlayer />

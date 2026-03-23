@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: '**' }, // Permite qualquer domínio HTTPS
       { protocol: 'http', hostname: '**' },  // Permite qualquer domínio HTTP
     ]
-  }
+  },
 };
 
 export default nextConfig;

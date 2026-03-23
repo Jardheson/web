@@ -215,18 +215,18 @@ export default async function Home() {
             className="object-cover opacity-60"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/30 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-background via-background/60 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r from-background via-background/30 to-transparent" />
         </div>
         
         <div className="relative z-10 px-4 md:px-8 pb-6 md:pb-12 max-w-2xl">
           <span className="text-primary font-bold tracking-widest text-[10px] md:text-sm mb-1.5 md:mb-4 block drop-shadow-md">EXCLUSIVO GLOBEPLAY+</span>
-          <h1 className="text-3xl md:text-6xl font-black mb-1.5 md:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-gray-400 leading-tight">Ação Sem Limites</h1>
+          <h1 className="text-3xl md:text-6xl font-black mb-1.5 md:mb-4 bg-clip-text text-transparent bg-linear-to-r from-white via-white to-gray-400 leading-tight">Ação Sem Limites</h1>
           <p className="text-xs md:text-lg text-gray-200 mb-4 md:mb-8 line-clamp-3 font-medium drop-shadow-md">
             Assista aos melhores filmes, séries e canais de TV ao vivo em uma só plataforma. Tudo o que você ama, agora com música e shows integrados.
           </p>
           <div className="flex flex-wrap items-center gap-2 md:gap-4">
-            <button className="flex items-center gap-1.5 md:gap-2 bg-gradient-to-r from-primary to-[#ff4081] text-white px-4 py-2 md:px-8 md:py-3.5 rounded-full font-bold hover:scale-105 hover:shadow-[0_0_20px_rgba(255,0,85,0.4)] transition-all text-xs md:text-base">
+            <button className="flex items-center gap-1.5 md:gap-2 bg-linear-to-r from-primary to-[#ff4081] text-white px-4 py-2 md:px-8 md:py-3.5 rounded-full font-bold hover:scale-105 hover:shadow-[0_0_20px_rgba(255,0,85,0.4)] transition-all text-xs md:text-base">
               <Play className="w-3.5 h-3.5 md:w-5 md:h-5 fill-white" /> Assistir
             </button>
             <button className="flex items-center gap-1.5 md:gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 md:px-8 md:py-3.5 rounded-full font-bold hover:bg-white/20 hover:scale-105 transition-all text-xs md:text-base">

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@apollo/client": "^4.1.6",
+    "@watchmode/api-client": "^1.0.0",
     "graphql": "^16.13.1",
     "hls.js": "^1.6.15",
     "iptv-playlist-parser": "^0.15.2",

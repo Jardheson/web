@@ -97,7 +97,15 @@ export default function MusicPage() {
             const res = await fetch(`https://api.jamendo.com/v3.0/tracks/?client_id=56d30c95&format=jsonpretty&limit=100&include=musicinfo&groupby=artist_id&order=popularity_total`);
             if (!res.ok) return [];
             const data = await res.json();
-            return (data.results || []).map((t: any) => ({
+            return (data.results || []).map((t: {
+              id: string;
+              name: string;
+              artist_name: string;
+              musicinfo?: { tags?: { genres?: string[] } };
+              duration: number;
+              audio: string;
+              image?: string;
+            }) => ({
               id: `jamendo-${t.id}`,
               title: t.name,
               artist: t.artist_name,
@@ -396,10 +404,10 @@ export default function MusicPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1b2a47] via-background to-background pb-32 relative">
+    <div className="min-h-screen bg-linear-to-b from-[#1b2a47] via-background to-background pb-32 relative">
       {/* Hero Section (Spotify Style) */}
       <div className="px-4 md:px-8 pt-10 md:pt-20 pb-6 flex flex-col md:flex-row items-end gap-6 md:gap-8 relative z-10">
-        <div className="w-48 h-48 md:w-60 md:h-60 bg-gradient-to-br from-secondary to-primary shadow-[0_10px_40px_rgba(0,0,0,0.6)] flex items-center justify-center flex-shrink-0 relative group">
+        <div className="w-48 h-48 md:w-60 md:h-60 bg-linear-to-br from-secondary to-primary shadow-[0_10px_40px_rgba(0,0,0,0.6)] flex items-center justify-center shrink-0 relative group">
           <Music2 className="w-24 h-24 md:w-32 md:h-32 text-white opacity-90 group-hover:scale-110 transition-transform duration-500" />
           <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         </div>
@@ -427,7 +435,7 @@ export default function MusicPage() {
       </div>
 
       {/* Background Gradient Overlay */}
-      <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"></div>
+      <div className="absolute top-0 left-0 w-full h-96 bg-linear-to-b from-black/40 to-transparent pointer-events-none"></div>
 
       {/* Content Area */}
       <div className="px-4 md:px-8 bg-black/20 backdrop-blur-3xl min-h-screen pt-6 relative z-10">
@@ -438,7 +446,7 @@ export default function MusicPage() {
           {/* Play Button */}
           <button 
             onClick={playRandom}
-            className="w-14 h-14 md:w-16 md:h-16 bg-[#1ed760] hover:bg-[#1fdf64] hover:scale-105 rounded-full flex items-center justify-center transition-all shadow-[0_8px_20px_rgba(30,215,96,0.3)] flex-shrink-0 ml-2 focus:outline-none focus:ring-4 focus:ring-white focus:ring-offset-4 focus:ring-offset-black"
+            className="w-14 h-14 md:w-16 md:h-16 bg-[#1ed760] hover:bg-[#1fdf64] hover:scale-105 rounded-full flex items-center justify-center transition-all shadow-[0_8px_20px_rgba(30,215,96,0.3)] shrink-0 ml-2 focus:outline-none focus:ring-4 focus:ring-white focus:ring-offset-4 focus:ring-offset-black"
             aria-label="Tocar ordem aleatória"
           >
             <Play className="w-7 h-7 md:w-8 md:h-8 text-black fill-black ml-1" />
@@ -537,7 +545,7 @@ export default function MusicPage() {
 
                     {/* Title & Image */}
                     <div className="flex items-center gap-3 md:gap-4 min-w-0">
-                      <div className="relative w-12 h-12 flex-shrink-0 bg-[#282828] rounded shadow-md overflow-hidden group-hover:shadow-lg transition-shadow">
+                      <div className="relative w-12 h-12 shrink-0 bg-[#282828] rounded shadow-md overflow-hidden group-hover:shadow-lg transition-shadow">
                         <TrackImage 
                           src={track.image} 
                           alt={`Capa de ${track.title}`} 
@@ -584,7 +592,7 @@ export default function MusicPage() {
                       >
                         <Heart className={`w-4 h-4 md:w-5 md:h-5 ${isFav ? 'fill-current' : ''}`} />
                       </button>
-                      <span className="hidden md:block group-hover:text-white transition-colors font-mono min-w-[40px] text-right">
+                      <span className="hidden md:block group-hover:text-white transition-colors font-mono min-w-10 text-right">
                         {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                         {formatDuration((track as any).duration)}
                       </span>

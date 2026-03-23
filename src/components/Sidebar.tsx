@@ -28,7 +28,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
       <aside className={`w-64 bg-sidebar/95 backdrop-blur-xl h-screen flex flex-col fixed left-0 top-0 border-r border-white/10 z-50 transition-transform duration-300 shadow-[10px_0_30px_rgba(0,0,0,0.5)] ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
         <div className="p-6 flex items-center justify-between">
-          <Link href="/" onClick={onClose} className="text-2xl font-black flex items-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary drop-shadow-md">
+          <Link href="/" onClick={onClose} className="text-2xl font-black flex items-center gap-2 text-transparent bg-clip-text bg-linear-to-r from-primary to-secondary drop-shadow-md">
             <Tv className="w-8 h-8 text-primary" />
             GlobePlay<span className="text-white drop-shadow-none">+</span>
           </Link>
@@ -88,7 +88,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         </div>
 
         {/* Social Media Footer */}
-        <div className="px-6 py-4 flex items-center justify-between border-t border-white/5 bg-gradient-to-b from-transparent to-black/40">
+        <div className="px-6 py-4 flex items-center justify-between border-t border-white/5 bg-linear-to-b from-transparent to-black/40">
           <Link href="https://instagram.com" target="_blank" className="text-gray-500 hover:text-[#E1306C] transition-all hover:scale-125 hover:-translate-y-1 drop-shadow-none hover:drop-shadow-[0_0_10px_rgba(225,48,108,0.8)]">
             <Instagram className="w-5 h-5" />
           </Link>
