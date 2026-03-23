@@ -2,6 +2,9 @@
 
 Uma plataforma de streaming moderna construída com Next.js que permite aos usuários assistir a TV, filmes, músicas, séries e novelas em um único lugar.
 
+<img width="2760" height="1586" alt="image" src="https://github.com/user-attachments/assets/8a607106-a365-447c-8dbf-91641dac7300" />
+
+
 ## 👨‍💻 Autor
 
 **Jardheson Oliveira**
